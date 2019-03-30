@@ -68,10 +68,10 @@ export class ChatComponent implements OnInit {
       for (i = 0; i < this.amigos.length; i++) {
         const profile = await this.rdf.getPhotoFriend(this.amigos[i]);
         if (profile) {
-          profileImage = profile.image ? profile.image : '/assets/images/profile.png';
+          profileImage = profile.image ? profile.image : '/dechat/assets/images/profile.png';
         }
         else {
-          profileImage = '/assets/images/profile.png';
+          profileImage = '/dechat/assets/images/profile.png';
         }
         let transformIm = profileImage.toString();
         if (transformIm.match('>')) {
@@ -182,10 +182,10 @@ export class ChatComponent implements OnInit {
       const profile = await this.rdf.getProfile();
       if (profile) {
         this.profile = profile;
-        this.profileImage = this.profile.image ? this.profile.image : '/assets/images/profile.png';
+        this.profileImage = this.profile.image ? this.profile.image : '/dechat/assets/images/profile.png';
       }
       else {
-        this.profileImage = '/assets/images/profile.png';
+        this.profileImage = '/dechat/assets/images/profile.png';
       }
     } catch (error) {
       console.log(`Error: ${error}`);
