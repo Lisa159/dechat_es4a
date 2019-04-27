@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { AppComponent } from './app.component';
 import { LoginPopupComponent } from './login-popup/login-popup.component';
 import { LoginComponent } from './login/login.component';
@@ -9,6 +8,11 @@ import { CardComponent } from './card/card.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChatComponent } from './chat/chat.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+
+import { VgCoreModule } from 'videogular2/core';
+import { VgControlsModule } from 'videogular2/controls';
+import { VgOverlayPlayModule } from 'videogular2/overlay-play';
+import { VgBufferingModule } from 'videogular2/buffering';
 
 // Services
 import { AuthService } from './services/solid.auth.service';
@@ -18,7 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import {EmojiPickerModule} from 'ng-emoji-picker';
+import {ShContextMenuModule} from 'ng2-right-click-menu'
 
 
 const routes: Routes = [
@@ -67,7 +72,7 @@ const routes: Routes = [
     CardComponent,
     RegisterComponent,
     ChatComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
@@ -75,8 +80,13 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     NgSelectModule,
     ToastrModule.forRoot(),
-    HttpClientModule,
-    BrowserAnimationsModule //required for toastr
+    BrowserAnimationsModule, //required for toastr
+    EmojiPickerModule,
+    ShContextMenuModule, //For right click menu
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

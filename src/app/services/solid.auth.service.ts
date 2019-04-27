@@ -62,20 +62,15 @@ export class AuthService {
     try {
 
       await solid.auth.logout();
-      // Remove localStorage
-      localStorage.removeItem('oldFriends');
-      localStorage.removeItem('solid-auth-client');
-      localStorage.removeItem('oldWebId');
-      localStorage.clear();
-      // Redirect to login page
-
 
     } catch (error) {
       console.log(`Error: ${error}`);
     }
-
-      this.router.navigate(['/']);
+      localStorage.removeItem('oldFriends');
+      localStorage.removeItem('solid-auth-client');
+      localStorage.removeItem('oldWebId');
       localStorage.clear();
+      this.router.navigate(['/']);
   }
 
   saveOldUserData = (profile: any) => {
@@ -128,19 +123,19 @@ export class AuthService {
   getIdentityProviders(): SolidProvider[] {
     const inruptProvider: SolidProvider = {
       name: 'Inrupt',
-      image: '/assets/images/Inrupt.png',
+      image: '/dechat_es4a/assets/images/Inrupt.png',
       loginUrl: 'https://inrupt.net/auth',
       desc: 'Inrupt Inc. provider'
     };
     const solidCommunityProvider: SolidProvider = {
       name: 'Solid Community',
-      image: '/assets/images/Solid.png',
+      image: '/dechat_es4a/assets/images/Solid.png',
       loginUrl: 'https://solid.community',
       desc: 'A provider maintained by the Solid Community'
     };
     const otherProvider: SolidProvider = {
       name: 'Other (Enter WebID)',
-      image: '/assets/images/Generic.png',
+      image: '/dechat_es4a/assets/images/Generic.png',
       loginUrl: null,
       desc: 'Generic provider'
     };

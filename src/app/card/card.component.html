@@ -1,58 +1,45 @@
 <div class="profile-container">
- 
-<app-navbar></app-navbar>
-  <h1>Profile</h1>
-
-  <!-- LOADING IMAGE -->
-  <div class="loading-image" *ngIf="loadingProfile">
-    <i class="fas fa-circle-notch fa-4x fa-spin"></i>
-  </div>
-
-  <!-- MAIN PROFILE -->
-  <div class="profile-fields-container" *ngIf="!loadingProfile">
-    <div class="profile-image-container">
-      <img [src]="profileImage" />
+  <div class="split left">
+    <div class="centered blackShadowGeneric">
+      <h1>Welcome to DeChat</h1>
+      <p>Connect with all your friends wherever and whenever you want.
+          <br>Your privacy will always stay with you.
+      </p>
+      <div class="button-position">
+          <button class="button blackShadowSmall " id="start" routerLink="/chat" (click)="goToChat()">Start chatting!</button>
+        </div>
     </div>
-    <form style="padding-top: 26px;" #f="ngForm" (submit)="onSubmit()">
-      <div class="fields pure-g">
-        <!-- NAME -->
-        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
-          <i class="fas fa-user"></i> <input type="text" class="field-text form-control" name="fn" placeholder="NAME" [(ngModel)]="profile.fn" />
-        </div>
 
-        <!-- PHONE -->
-        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
-          <i class="fas fa-phone"></i><input type="text" class="field-text form-control" name="phone" placeholder="PHONE" [(ngModel)]="profile.phone" />
-        </div>
+    <div class="down">
+      <div class="git">
+        <a href="https://github.com/Arquisoft/dechat_es4a" id='git' style="color: rgb(255, 255, 255)">
+          <i class="fab fa-github"></i>
+          <p class="textGit blackShadowSmall" >https://github.com/Arquisoft/dechat_es4a</p>
+        </a>
       </div>
+    </div>
 
-      <div class="fields pure-g">
-        <!-- ROLE -->
-        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
-          <i class="fas fa-user-astronaut"></i> <input type="text" class="field-text form-control" name="role" placeholder="ROLE" [(ngModel)]="profile.role" />
-        </div>
-
-        <!-- EMAIL -->
-        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
-          <i class="fas fa-envelope"></i><input type="text" class="field-text form-control" name="email" placeholder="EMAIL" [(ngModel)]="profile.email" />
-        </div>
-      </div>
-
-      <div class="fields pure-g">
-        <!-- ORGANIZATION -->
-        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
-          <i class="fas fa-building"></i> <input type="text" class="field-text form-control" name="company" placeholder="ORGANIZATION" [(ngModel)]="profile.company" />
-        </div>
-
-        <!-- ADDRESS -->
-        <div class="pure-u-1-1 pure-u-md-1-2 form-group">
-          <i class="fas fa-map-marker-alt" style="width: 12px; margin-left: 2px;"></i><input type="text" class="field-text form-control" name="address" placeholder="ADDRESS" [(ngModel)]="profile.address.street" />
-        </div>
-      </div>
-
-      <div class="profile-save-button-container">
-        <button type="submit" class="wide-button profile-save-button" [disabled]="!cardForm || cardForm.pristine">Save</button>
-      </div>
-    </form>
   </div>
+
+  <div class="split right">
+      <div (mouseenter)="rotate()">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble2.png"
+          style="position: absolute; right:80%; bottom:85%; width:8%; height:8%; border:none;">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble2.png"
+          style="position:absolute; right:40%; top:2%; width:8%; height:8%; border:none;">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble.png"
+          style="position:absolute; right:85%; bottom:30%; width:8%; height:8%; border:none;">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble.png"
+          style="position:absolute; right:13%; top:13%; width:8%; height:8%; border:none;">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble2.png"
+          style="position:absolute; right:70%; bottom:15%; width:8%; height:8%; border:none;">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble2.png"
+          style="position:absolute; right:17%; bottom: 20%; width:8%; height:8%; border:none;">
+        <img [@rotatedState]='state' src="/assets/images/messageBubble.png"
+          style="position:absolute; right:3%; top:30%; width:8%; height:8%; border:none;">
+        </div>
+  </div>
+
+
+
 </div>
